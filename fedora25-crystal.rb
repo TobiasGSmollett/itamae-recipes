@@ -1,3 +1,7 @@
+execute "install gcc" do
+  command "dnf install gcc -y"
+end
+
 execute "install gmp-devel" do
   command "dnf install gmp-devel -y"
 end
@@ -67,6 +71,6 @@ link "link crystal-0.22.0-1" do
   to "/root/crystal-0.22.0-1/bin/crystal"
 end
 
-directory "/root/crystal-0.22.0-1-linux-x86_64.tar.gz" do
-  action :delete
+execute "remove tar.gz" do
+  command "rm crystal-0.22.0-1-linux-x86_64.tar.gz"
 end
